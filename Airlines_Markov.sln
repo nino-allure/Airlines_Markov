@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airlines_Markov", "Airlines_Markov.csproj", "{8FB88D72-5894-4094-B576-5B486506B4AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingBD", "..\WorkingBD\WorkingBD.csproj", "{4D7A36A2-0120-4877-9ECE-B1B3D2F4AB00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8FB88D72-5894-4094-B576-5B486506B4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB88D72-5894-4094-B576-5B486506B4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB88D72-5894-4094-B576-5B486506B4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7A36A2-0120-4877-9ECE-B1B3D2F4AB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7A36A2-0120-4877-9ECE-B1B3D2F4AB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7A36A2-0120-4877-9ECE-B1B3D2F4AB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7A36A2-0120-4877-9ECE-B1B3D2F4AB00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
