@@ -30,7 +30,7 @@ namespace Airlines_Markov.Pages
         }
         private void Exit(object sender, RoutedEventArgs e)
         {
-            MainWindow.Close();
+
         }
     }
 }

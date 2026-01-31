@@ -8,19 +8,20 @@
         Title="Управление Авиалиниями" Height="450" Width="800"
         MinHeight="450" MinWidth="800">
     <Grid>
-        <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
+
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-
+            <Frame x:Name="frame" NavigationUIVisibility="Hidden" Grid.Row="2"/>
             <Grid Grid.Column="0" Background="#0041C2">
                 <Image Source="C:\Users\Student-A502.PERMAVIAT\Desktop\Airlines_Markov\abstract-white-plane-icon-png.png" 
            HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="40" Margin="10,10,0,0" />
                 <Label Content="Управление авиалиниями" HorizontalAlignment="Left" Margin="60,0,10,0" Foreground="White" FontSize="20px" VerticalAlignment="Center" FontWeight="Bold"/>
             </Grid>
             <Grid Grid.Column="1">
+                <Button Content="Вернуться" Height="28" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,120,0" Click="Back" Background="LightSlateGray"/>
                 <Button Content="Выход" Height="28" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Exit"/>
             </Grid>
         </Grid>

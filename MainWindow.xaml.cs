@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Airlines_Markov.Classes;
+using Airlines_Markov.Pages;
 
 namespace Airlines_Markov
 {
@@ -25,6 +27,7 @@ namespace Airlines_Markov
         {
             InitializeComponent();
             init = this;
+            OpenPage(new Pages.Main());
         }
 
         public void OpenPage(Page Page)
@@ -34,6 +37,13 @@ namespace Airlines_Markov
         private void Exit (object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public List<TicketClass> ticketClasses = new List<TicketClass>();
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            OpenPage(new Pages.Main());
         }
     }
 }

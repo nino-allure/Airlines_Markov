@@ -26,7 +26,7 @@ namespace Airlines_Markov.Pages
         }
         private void Exit(object sender, RoutedEventArgs e)
         {
-            this.Close();
+
         }
     }
 }
