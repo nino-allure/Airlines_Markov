@@ -14,8 +14,9 @@ namespace Airlines_Markov.Classes
         public string timestart { get; set; }
         public string timeway { get; set; }
 
-        public TicketClass(string from, string to, string timestart, string timeway)
+        public TicketClass(string price, string from, string to, string timestart, string timeway)
         {
+            this.price = price;
             this.from = from;
             this.to = to;
             this.timestart = timestart;

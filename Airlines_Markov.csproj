@@ -104,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Element\Item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,7 +116,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes2\Context.cs" />
     <Compile Include="Classes\TicketClass.cs" />
+    <Compile Include="Element\Item.xaml.cs">
+      <DependentUpon>Item.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -160,13 +168,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WorkingBD\WorkingBD.csproj">
-      <Project>{4d7a36a2-0120-4877-9ece-b1b3d2f4ab00}</Project>
-      <Name>WorkingBD</Name>
-    </ProjectReference>
+    <Resource Include="abstract-white-plane-icon-png.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="abstract-white-plane-icon-png.png" />
+    <ProjectReference Include="..\WorkingDB\WorkingDB.csproj">
+      <Project>{e8413f21-eac7-43c5-b305-59a1b8c0263d}</Project>
+      <Name>WorkingDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

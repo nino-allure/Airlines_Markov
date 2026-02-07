@@ -17,16 +17,20 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <Label Content="Поиск Дешевых Билетов" Foreground="White" FontSize="24px" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0" Height="40"/>
             <Label Content="Лучший способ купить авибилеты дешево" Foreground="White" FontSize="16px" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
             <Label Content="Откуда:" Foreground="White" FontSize="12px" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2"/>
+            <Label Content="Дата Вылета:" Foreground="White" FontSize="12px" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="6"/>
             <Label Content="Куда:" Foreground="White" FontSize="12px" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4"/>
             <TextBox Grid.Row="3" x:Name="from"  Height="30"/>
             <TextBox Grid.Row="5" x:Name="to" Height="30"/>
-            <Button Grid.Row="6" Height="30" Width="100" Background="OrangeRed" Content="Найти" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Search"/>
+            <TextBox Grid.Row="7" x:Name="date"  Height="30"/>
+            <Button Grid.Row="8" Height="30" Width="100" Background="OrangeRed" Content="Найти" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Search"/>
         </Grid>
     </Grid>
 </Page>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Airlines_Markov.Classes;
+using Airlines_Markov.Classes2;
 using Airlines_Markov.Pages;
 
 namespace Airlines_Markov
@@ -23,6 +24,8 @@ namespace Airlines_Markov
     public partial class MainWindow : Window
     {
         public static MainWindow init;
+        public List<Context> TicketContext = Context.AllTickets();
+
         public MainWindow()
         {
             InitializeComponent();
