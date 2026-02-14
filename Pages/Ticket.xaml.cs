@@ -17,79 +17,51 @@ using Airlines_Markov.Element;
 
 namespace Airlines_Markov.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для Ticket.xaml
-    /// </summary>
     public partial class Ticket : Page
     {
-        private string searchFrom;
-        private string searchTo;
-
-        public Ticket(string From, string To)
+        public Ticket(string from, string to, string depTime, string arrTime)
         {
             InitializeComponent();
 
-            searchFrom = From;
-            searchTo = To;
+            SearchInfoLabel.Content = $"{from} → {to}";
 
-            // Обновляем заголовок с информацией о поиске
-            SearchInfoLabel.Content = $"Результаты поиска: {From}  {To}";
-
-            // Загружаем и отображаем билеты
-            LoadAndDisplayTickets();
-        }
-
-        private void LoadAndDisplayTickets()
-        {
             try
             {
-                // Загружаем билеты из БД
                 MainWindow.init.LoadTickets();
 
-                // Фильтруем билеты по направлениям (без учета регистра)
-                var filteredTickets = MainWindow.init.ticketClasses
-                    .Where(t => t.from.IndexOf(searchFrom, StringComparison.OrdinalIgnoreCase) >= 0 &&
-                                t.to.IndexOf(searchTo, StringComparison.OrdinalIgnoreCase) >= 0)
+                var tickets = MainWindow.init.ticketClasses
+                    .Where(t => t.from.Contains(from) && t.to.Contains(to))
                     .ToList();
 
-                // Очищаем StackPanel перед добавлением новых элементов
                 TicketsStackPanel.Children.Clear();
 
-                if (filteredTickets.Any())
+                foreach (var ticket in tickets)
                 {
-                    // Скрываем сообщение "Билеты не найдены"
-                    NoTicketsMessage.Visibility = Visibility.Collapsed;
-
-                    // Добавляем каждый билет в StackPanel
-                    foreach (var ticket in filteredTickets)
+                    // Проверяем время вылета
+                    if (ticket.timestart.Contains(depTime))
                     {
-                        // Создаем новый элемент билета
-                        var ticketItem = new Item();
-
-                        // Здесь нужно передать данные билета в элемент Item
-                        // Для этого нужно добавить метод или свойство в Item.xaml.cs
-                        ticketItem.SetTicketData(ticket);
-
-                        TicketsStackPanel.Children.Add(ticketItem);
+                        var item = new Item();
+                        item.SetTicketData(ticket);
+                        TicketsStackPanel.Children.Add(item);
+                    }
+                    // Проверяем время прилета
+                    else if (ticket.timeway.Contains(arrTime))
+                    {
+                        var item = new Item();
+                        item.SetTicketData(ticket);
+                        TicketsStackPanel.Children.Add(item);
                     }
                 }
-                else
+
+                if (TicketsStackPanel.Children.Count == 0)
                 {
-                    // Показываем сообщение, если билеты не найдены
                     NoTicketsMessage.Visibility = Visibility.Visible;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при загрузке билетов: {ex.Message}", "Ошибка",
-                              MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Ошибка: {ex.Message}");
             }
-        }
-
-        private void Exit(object sender, RoutedEventArgs e)
-        {
-            // Возврат на главную страницу
-            MainWindow.init.OpenPage(new Main());
         }
     }
 }
