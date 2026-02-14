@@ -4,54 +4,158 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Airlines_Markov.Element"
-             mc:Ignorable="d" Height="98" Width="740">
-    <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="98" Background="LightGray">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="380"/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
+             mc:Ignorable="d" Height="100" Width="740">
+    <Border
+            Background="White">
 
-        <Label Content="1999 Р" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10" FontSize="18" FontWeight="Bold" Grid.Column="0"/>
-        <Button Height="24" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20" Foreground="White" Content="Подробнее" Background="OrangeRed" Grid.Column="0"/>
-        <Grid Grid.Column="1" VerticalAlignment="Center" Height="100">
-            <Label Content="pobeda" HorizontalAlignment="Left" Margin="0,5,0,0" FontSize="10"/>
-            <Label Content="05:50" HorizontalAlignment="Left"  Margin="0,20,0,0" FontSize="18"/>
-            <Label Content="Пермь" HorizontalAlignment="Left"  Margin="0,50,0,0" FontSize="8"/>
-            <Label Content="29 сентября 2025" HorizontalAlignment="Left" Margin="0,65,0,0" FontSize="8"/>
-        </Grid>
+        <Grid Margin="5" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="2" Height="60" VerticalAlignment="Center" Width="360">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
+            <!-- Цена -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label x:Name="PriceLabel" 
+                       Content="1999 Р" 
+                       FontSize="18" 
+                       FontWeight="Bold" 
+                       Foreground="#0041C2"
+                       HorizontalAlignment="Center"/>
+                <Button Height="30" 
+                        Width="120" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,5" 
+                        Foreground="White" 
+                        Content="Выбрать" 
+                        Background="OrangeRed"
+                        FontWeight="Bold"/>
+            </StackPanel>
 
-            <Grid Grid.Row="0">
-                <Image VerticalAlignment="Center" HorizontalAlignment="Left" Height="20"/>
-                <Label Content="В пути: 2ч 15м" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Image  VerticalAlignment="Center" HorizontalAlignment="Right" Height="20" RenderTransformOrigin="0.5,0.5">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="53.217"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
+            <!-- Откуда -->
+            <Grid Grid.Column="1" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="AirlineLabel" 
+                       Grid.Row="0" 
+                       Content="Авиакомпания" 
+                       FontSize="10" 
+                       Foreground="Gray"
+                       Margin="0,0,0,-5"/>
+
+                <Label x:Name="FromTimeLabel" 
+                       Grid.Row="1" 
+                       Content="05:50" 
+                       FontSize="18" 
+                       FontWeight="Bold"/>
+
+                <Label x:Name="FromCityLabel" 
+                       Grid.Row="2" 
+                       Content="Город" 
+                       FontSize="12"/>
+
+                <Label x:Name="FromDateLabel" 
+                       Grid.Row="3" 
+                       Content="Дата" 
+                       FontSize="10" 
+                       Foreground="Gray"/>
             </Grid>
-            <Grid Grid.Row="1">
-                <Border Background="DarkSlateGray" Height="5"/>
+
+            <!-- Информация о перелете -->
+            <Grid Grid.Column="2" VerticalAlignment="Center" Margin="10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Иконка самолета (можно заменить на символ) -->
+                    <Label x:Name="TravelTimeLabel" 
+                           Grid.Column="1" 
+                           Content="В пути: 2ч 15м" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           FontSize="12"/>
+
+                    
+                </Grid>
+
+                <!-- Линия маршрута -->
+                <Grid Grid.Row="1" Margin="0,5,0,0">
+                    <Border Background="LightGray" Height="2" VerticalAlignment="Center"/>
+
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Ellipse Grid.Column="0" 
+                                 Width="8" 
+                                 Height="8" 
+                                 Fill="#0041C2" 
+                                 HorizontalAlignment="Left"
+                                 Margin="-3,0,0,0"/>
+
+
+                        <Ellipse Grid.Column="2" 
+                                 Width="8" 
+                                 Height="8" 
+                                 Fill="#0041C2" 
+                                 HorizontalAlignment="Right"
+                                 Margin="0,0,-3,0"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- Куда -->
+            <Grid Grid.Column="3" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="AirlineLabel2" 
+                       Grid.Row="0" 
+                       Content="Авиакомпания" 
+                       FontSize="10" 
+                       Foreground="Gray"
+                       Margin="0,0,0,5"
+                       Visibility="Collapsed"/>
+
+                <Label x:Name="ToTimeLabel" 
+                       Grid.Row="1" 
+                       Content="06:50" 
+                       FontSize="18" 
+                       FontWeight="Bold"/>
+
+                <Label x:Name="ToCityLabel" 
+                       Grid.Row="2" 
+                       Content="Город" 
+                       FontSize="12"/>
+
+                <Label x:Name="ToDateLabel" 
+                       Grid.Row="3" 
+                       Content="Дата" 
+                       FontSize="10" 
+                       Foreground="Gray"/>
             </Grid>
         </Grid>
-
-        <Grid Grid.Column="3" VerticalAlignment="Center" Height="100">
-            <Label Content="pobeda" HorizontalAlignment="Left" Margin="0,5,0,0" FontSize="10"/>
-            <Label Content="06:50" HorizontalAlignment="Left"  Margin="0,20,0,0" FontSize="18"/>
-            <Label Content="Пермь" HorizontalAlignment="Left"  Margin="0,50,0,0" FontSize="8"/>
-            <Label Content="29 сентября 2025" HorizontalAlignment="Left" Margin="0,65,0,0" FontSize="8"/>
-        </Grid>
-    </Grid>
+    </Border>
 </UserControl>
